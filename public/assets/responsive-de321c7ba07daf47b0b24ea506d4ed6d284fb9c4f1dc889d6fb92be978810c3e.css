@@ -1,0 +1,565 @@
+
+/*-----------------------------------------------------------------------------------
+
+	0.	RESET & CLEARFIX
+	1.	BASICS (body, headers, links, etc)
+	2.	HEADER
+	3.	CONTAINER
+	4.  POSTS
+    5.  FOOTER
+	6.  ANIMATIONS
+	7.  COMPONENT
+	8. CUSTOM
+	
+-----------------------------------------------------------------------------------*/
+
+
+
+/*---------------------------------------------- 
+1. BASICS
+------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------- 
+Main Menu
+------------------------------------------------*/
+
+
+@media screen and (max-width:1024px)
+{
+    .top-menu-position-right {
+    display:block;
+}
+    .top-menu-main-menu {
+    height: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: 20px;
+}
+.top-menu-main-menu > ul > li,.top-menu-main-menu > ul > li a {height:auto;}
+.top-menu-main-menu > ul > li{width:100%;}
+.top-menu-menu-from-right-oppened #menu-main-menu
+{
+    border-radius: 5px;
+    height: auto;
+    padding: 15px 0 0;
+
+}
+.top-menu-main-menu > ul > li > a {
+    font-size: 15px;
+    line-height: 20px;
+    margin-top: 20px;
+    width: 180px;
+}
+
+.top-menu-main-menu ul li {
+    background: rgba(255, 255, 255, 0.7) none repeat scroll 0 0;
+}
+
+}
+
+
+
+
+/*---------------------------------------------- 
+1. CONTAINER
+------------------------------------------------*/
+
+@media screen and (max-width:1024px)
+{
+    .mobile-menu{display:block;}
+    .page-transition-buttons{display:none;}
+    .home-mobile-menu-link,.mobile-menu-link {
+    color: #a4b4b3;
+    font-size: 12px;
+}
+
+.homepage-link .home-mobile-menu-link  , .mobile-menu-link.active, .mobile-menu-link:hover {
+    color: #000;
+    text-decoration:none;
+}
+.mobile-menu {width: 201px;line-height: 16px;}
+.mobile-menu .homepage-link, .mobile-menu .page-link {
+    text-align: center;
+    width: 100px;
+}
+.mobile-menu .homepage-link{border-right:1px solid #000;float:left;}
+.page-link {
+    float: right;
+    line-height: 20px;
+}
+}
+
+/*---------------------------------------------- 
+1. SIDEBAR SECTION
+------------------------------------------------*/
+
+@media screen and (max-width:1024px)
+{
+    .page-section.profile-sidebar {
+        position: absolute;
+        top: 0;
+        z-index: 104;
+        left: -25%;
+        -webkit-transition: all 200ms ease-out 00ms;
+    -moz-transition: all 200ms ease-out 00ms;
+    -o-transition: all 200ms ease-out 00ms;
+    transition: all 200ms ease-out 00ms;
+    
+    }
+    .main-site-container.homepage .page-section.profile-sidebar {
+        left: 0%;
+    }
+    .user-profile{max-width:none;}
+}
+
+@media screen and (max-width:767px)
+{
+    
+
+.logo-home-mobile-link{display:block;left:0%;}
+.logo-home-mobile-link.hide-animation{left:-80px;}
+.hide-profile-sidebar-link {display:block;}
+
+
+
+    .page-section.profile-sidebar {
+        position: absolute;
+        top: 0;
+        z-index: 104;
+        left: -50%;
+        -webkit-transition: all 500ms ease-out 00ms;
+    -moz-transition: all 500ms ease-out 00ms;
+    -o-transition: all 500ms ease-out 00ms;
+    transition: all 500ms ease-out 00ms;
+    background:#8ECCC1;
+    }
+    .main-site-container.homepage .page-section.profile-sidebar {
+        left: -50%;
+    }
+    .main-site-container .page-section.profile-sidebar.animateShow {
+        left: 0%;
+    }
+}
+@media screen and (max-width:600px)
+{
+.skills-list-progress{width:100%;padding-right:0;}
+}
+/*---------------------------------------------- 
+1. PAGE SECTION
+------------------------------------------------*/
+
+
+@media screen and (min-width:1201px) and (max-width:1650px)
+{
+.page-title {
+    font-size: 50px;
+}
+.page-container.expanded .page-title {
+    font-size: 130px;
+}
+
+}
+@media screen and (max-width:1200px)
+{
+.page-container.expanded .page-title {
+    font-size: 130px;
+}
+
+}
+
+@media screen and (max-width:1024px)
+{
+.page-title {
+    font-size: 100px;
+}
+.page-container.expanded .page-title {
+    font-size: 100px;
+}
+.reply,.comment-content {padding: 0;}
+
+
+.page-content {
+    margin: 40px 30px 30px;
+}
+#home .page-content {
+    margin: 150px 30px 30px;
+}
+}
+
+
+@media screen and (max-width:579px)
+{
+.page-title {
+    font-size: 70px;
+}
+.page-container.expanded .page-title {
+    font-size: 70px;
+}
+
+#home .page-title {
+    font-size: 100px;
+}
+#home .page-container.expanded .page-title {
+    font-size: 100px;
+}
+
+.page-content {
+    margin: 40px 30px 30px;
+}
+.page-post-cotnent {
+    font-size: 18px;
+    line-height: 30px;
+}
+}
+
+
+
+
+/*---------------------------------------------- 
+1. PORTFOLIO SECTION
+------------------------------------------------*/
+
+
+@media screen and (max-width:767px){
+
+.portfolio-item ,
+.expanded .portfolio-item {width:100%;}
+}
+
+/*---------------------------------------------
+Portfolio Inner pages css
+---------------------------------------------*/
+
+@media screen and (max-width:1024px){
+
+
+
+.portfolio-inner-post .portfolio-item-image-overly {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+}
+.portfolio-container.portfolio-inner-post {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: -100%;
+    -webkit-transition: all 500ms ease-out 00ms;
+    -moz-transition: all 500ms ease-out 00ms;
+    -o-transition: all 500ms ease-out 00ms;
+    transition: all 500ms ease-out 00ms;
+}
+.portfolio-container.portfolio-inner-post .page-content {
+    margin: 0;
+}
+.portfolio-container.portfolio-inner-post .portfolio-item-container {
+    margin: 0;
+}
+.portfolio-inner-post .portfolio-item .portfolio-item-image 
+{
+    visibility: hidden;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.portfolio-inner-post .portfolio-item .portfolio-item-image.CurrentPost
+{
+    visibility:visible;
+    }
+.portfolio-container.portfolio-inner-post .portfolio-item {
+    display: none;
+    margin: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top:0;
+    width: 100%;
+    max-width:none;
+     padding: 0;
+}
+.portfolio-container.portfolio-inner-post .portfolio-item.CurrentPost 
+{
+    display: block;
+}
+.portfolio-inner-post .portfolio-item .portfolio-item-image-container {
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.page-container.portfolio.show-inner-post .portfolio-container.portfolio-inner-post {
+    display: block;
+    overflow: hidden;
+}
+.page-container.portfolio.show-inner-post.animate-inner-post .portfolio-container.portfolio-inner-post {
+    top:0;
+}
+.page-container.portfolio.hide-image-post .portfolio-container.portfolio-image-post {
+    display:none;
+}
+.portfolio-inner-post .portfolio-item-content-container {
+    margin: 20px 0;
+    padding: 0 30px;
+    text-align: center;
+}
+.page-portfolio-close{cursor:pointer;}
+.page-portfolio-close {
+    bottom: 40px;
+    color: #fff;
+    font-size: 35px;
+    height: 50px;
+    left: 50%;
+    margin-left: -25px;
+    position: absolute;
+    width: 50px;
+    cursor:pointer;
+}
+
+.portfolio-item-image-overly-container {
+    background:rgba(255,255,255,0.6);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display:none;
+}
+.portfolio-item-image-container
+{
+    -webkit-transition: all 40ms ease-out 00ms;
+    -moz-transition: all 40ms ease-out 00ms;
+    -o-transition: all 40ms ease-out 00ms;
+    transition: all 40ms ease-out 00ms;
+    -webkit-filter: brightness(100%);
+    -moz-filter: brightness(100%);
+    -o-filter: brightness(100%);
+    filter: brightness(100%);
+}
+.portfolio-item-image-container.transationanimation
+{
+    -webkit-filter: brightness(400%);
+    -moz-filter: brightness(400%);
+    -o-filter: brightness(400%);
+    filter: brightness(400%);
+    }
+
+
+}
+
+
+
+/*---------------------------------------------
+Portfolio Inner pages css
+---------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+/*---------------------------------------------- 
+1. BLOG SECTION
+------------------------------------------------*/
+
+
+/*---------------------------------------------
+Blog Inner pages css
+---------------------------------------------*/
+
+@media screen and (max-width:1024px){
+
+
+.blog-inner-post .blog-item-image-overly:hover {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+}
+.blog-container.blog-inner-post 
+{
+    background: #fff none repeat scroll 0 0;
+     display: none;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 500ms ease-out 00ms;
+    -moz-transition: all 500ms ease-out 00ms;
+    -o-transition: all 500ms ease-out 00ms;
+    transition: all 500ms ease-out 00ms;
+}
+.blog-container.blog-inner-post .page-content {
+    margin: 0;
+}
+.blog-container.blog-inner-post .blog-item-container {
+    margin: 0;
+}
+.blog-container.blog-inner-post .blog-item {
+    display: none;
+    margin: 0;
+}
+.blog-container.blog-inner-post .blog-item.CurrentPost {
+    display: block;
+}
+.page-container.blog.show-inner-post .blog-container.blog-inner-post {
+    display: block;
+    height: 250px;
+    overflow: hidden;
+}
+.page-container.blog.show-inner-post.animate-inner-post .blog-container.blog-inner-post {
+    height: inherit;
+}
+.page-container.blog.show-inner-post.animate-inner-post .blog-container.blog-inner-post .blog-item{
+    height: 500px;
+}
+.page-container.blog.hide-image-post .blog-container.blog-image-post {
+    display:none;
+}
+.blog-inner-post .blog-item-content-container {
+    margin: 20px 0;
+    padding: 0 30px;
+    text-align: center;
+}
+.page-blog-close{cursor:pointer;}
+.page-container.expanded .blog-inner-post .page-title {
+    display: block;
+    font-size: 40px;
+}
+
+
+}
+
+
+
+
+
+
+/*---------------------------------------------- 
+1. BIO PAGE SECTION
+------------------------------------------------*/
+
+
+
+/*---------------------------------------------- 
+1. CONTACT PAGE SECTION
+------------------------------------------------*/
+
+@media screen and (min-width:1201px) and (max-width:1650px)
+{
+    .contact-form-field-input{
+    font-size: 50px;
+    line-height: 50px;
+    height: 50px;
+    
+}
+.contact-form-field-input:focus,.contact-form-field-input.small {
+    font-size: 25px;
+    line-height: 50px;
+    height:50px;
+}
+textarea.contact-form-field-input{height:50px;}
+.contact-form {padding-right: 90px;}
+.contact-form-field-submit,.expanded .contact-form-field-submit{width:90px;}
+.expanded .contact-form-field-input{
+    font-size: 90px;
+    line-height: 90px;
+    height: 90px;
+}
+.expanded .contact-form-field-input:focus,.contact-form-field-input.small {
+    font-size: 25px;
+    line-height: 50px;
+    margin-bottom: 10px;
+    height:90px;
+}
+.expanded textarea.contact-form-field-input{height:90px;}
+
+}
+
+@media screen and (max-width:1200px)
+{
+
+.expanded .contact-form-field-input{
+    font-size: 90px;
+    line-height: 90px;
+    height: 90px;
+}
+.expanded .contact-form-field-input:focus,.contact-form-field-input.small {
+    font-size: 25px;
+    line-height: 50px;
+    height:90px;
+}
+.expanded textarea.contact-form-field-input{height:90px;}
+}
+@media screen and (max-width:1024px)
+{
+.contact-details-rotate {
+     margin: 20px 0 30px;
+    position: relative;
+    top: 0;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -o-transform: none;
+    transform: none;
+    width: 100%;
+}
+.contact-details-rotate > p {
+    font-size: 24px;
+    line-height: 30px;
+}
+}
+
+
+@media screen and (max-width:767px)
+{
+    .contact-form {
+    padding-right: 90px;
+}
+.contact-form-field-submit,.expanded .contact-form-field-submit{width:90px;font-size:90px;text-align:center;}
+}
+
+@media screen and (max-width:579px)
+{
+   .contact-details-rotate > p {
+    font-size: 16px;
+    line-height: 24px;
+}
+ .contact-form-field-input{
+    font-size: 45px;
+    line-height: 45px;
+    height: 45px;
+    
+}
+.contact-form-field-input:focus,.contact-form-field-input.small {
+    font-size: 25px;
+    line-height: 45px;
+    height:45px;
+}
+textarea.contact-form-field-input{height:45px;}
+.expanded .contact-form-field-input{
+    font-size: 45px;
+    line-height: 45px;
+    height: 45px;
+}
+.expanded .contact-form-field-input:focus,.contact-form-field-input.small {
+    font-size: 25px;
+    line-height: 45px;
+    height:45px;
+}
+.expanded textarea.contact-form-field-input{height:45px;}
+}
