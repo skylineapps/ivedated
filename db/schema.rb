@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160913190955) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160913190955) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["event_id"], name: "index_comments_on_event_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["event_id"], name: "index_comments_on_event_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160913190955) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "events", ["user_id"], name: "index_events_on_user_id"
+  add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "joins", force: :cascade do |t|
     t.integer  "user_id"
@@ -43,8 +46,8 @@ ActiveRecord::Schema.define(version: 20160913190955) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "joins", ["event_id"], name: "index_joins_on_event_id"
-  add_index "joins", ["user_id"], name: "index_joins_on_user_id"
+  add_index "joins", ["event_id"], name: "index_joins_on_event_id", using: :btree
+  add_index "joins", ["user_id"], name: "index_joins_on_user_id", using: :btree
 
   create_table "letters", force: :cascade do |t|
     t.string   "title"
@@ -55,8 +58,8 @@ ActiveRecord::Schema.define(version: 20160913190955) do
     t.integer  "user_id"
   end
 
-  add_index "letters", ["event_id"], name: "index_letters_on_event_id"
-  add_index "letters", ["user_id"], name: "index_letters_on_user_id"
+  add_index "letters", ["event_id"], name: "index_letters_on_event_id", using: :btree
+  add_index "letters", ["user_id"], name: "index_letters_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -69,4 +72,11 @@ ActiveRecord::Schema.define(version: 20160913190955) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "comments", "events"
+  add_foreign_key "comments", "users"
+  add_foreign_key "events", "users"
+  add_foreign_key "joins", "events"
+  add_foreign_key "joins", "users"
+  add_foreign_key "letters", "events"
+  add_foreign_key "letters", "users"
 end
