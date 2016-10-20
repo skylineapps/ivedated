@@ -1,0 +1,27 @@
+# SQLite version 3.x changed to postgresql
+#   gem install postgresql
+#
+#   Ensure the postgresql gem is defined in your Gemfile
+#   gem 'postgresql'
+#
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: ubuntu
+  pool: 5
+
+development:
+  <<: *default
+  database: seeks_development
+  timeout: 5000
+
+test:
+  <<: *default
+  database: seeks_test
+  timeout: 5000
+
+production:
+  <<: *default
+  database: seeks_production
+  timeout: 5000
