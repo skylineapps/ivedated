@@ -1,6 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700italic,700'
+        rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,400italic,700italic,700'
+        rel='stylesheet' type='text/css'>
+
+    <%= stylesheet_link_tag 'main', 'font-awesome', 'application','responsive','bootstrap','bootstrap.min' %>
+    <%= javascript_include_tag 'jquery.min', 'script', 'modernizr.min', 'jquery.nicescroll.min', 'bootstrap.min', 'bootstrap' %>
+    <%= csrf_meta_tags %>
+
+<style>
+body, html {
+	background-image: url("http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png");
+    height: 150%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.add_events {
+	display: inline-block;
+}
+
+#thumb {
+	border-radius: 25px;
+}
+</style>
+</head>
+<body>
+
 <p><a href="/events">Events Dashboard</a> <a href="/sessions" data-method='delete'>Logout</a></p>
-<h2>Edit your profile</h2>
-<form action="/users/edit" method="post">
+
+
+<div id="register" class="col-md-6">
+<center><h2>Confirm your profile</h2>
+<form action="/users/update" method="post" html: { multipart: true }>
 	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		<table>
 			<tr>
@@ -77,8 +117,31 @@
 				</td>
 			</tr>
 			<tr>
+				
+			</tr>
+			<tr>
 				<td></td>
 				<td><input type="submit" value="Submit"></td>
 			</tr>
 		</table>
-	</form>
+	</form></center>
+
+	</div>
+</div>
+
+<h1>Upload Your Image</h1>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
+<!--   <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%= f.label :email %>
+  <%= f.text_field :email %> -->
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.submit :submit %>
+<% end %>
+
+<div id="thumb">
+<%= image_tag @user.image.url (:thumb)  %>
+</div>

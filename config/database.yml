@@ -4,19 +4,24 @@
 #   Ensure the postgresql gem is defined in your Gemfile
 #   gem 'postgresql'
 #
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # username: ubuntu
+  pool: 5
+
 development:
-  adapter: postgresql
+  <<: *default
   database: my_database_development
-  pool: 5
   timeout: 5000
+
 test:
-  adapter: postgresql
+  <<: *default
   database: my_database_test
-  pool: 5
   timeout: 5000
 
 production:
-  adapter: postgresql
+  <<: *default
   database: my_database_production
-  pool: 5
   timeout: 5000

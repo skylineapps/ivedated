@@ -36,6 +36,10 @@ Rails.application.routes.draw do
 
   post '/letters/new' => 'letters#create'
 
+  patch '/users/:id' => 'users#update'
+
+  resources :users
+
  
 
 
