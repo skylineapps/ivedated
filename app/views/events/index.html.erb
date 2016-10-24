@@ -27,6 +27,10 @@ body, html {
 .add_events {
 	display: inline-block;
 }
+
+.thumb {
+	border-radius: 25px;
+}
 </style>
 </head>
 <body>
@@ -47,8 +51,8 @@ body, html {
 		<!-- <div class="header_placeholder" style="height: 0px;"></div> -->
 			
 		<!-- MAIN IMAGE -->
-		<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; backface-visibility: hidden; transform: translate3d(0px, 0px, 0px); visibility: inherit; opacity: 1;"><!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png" alt="" title="ivedated_CLOUD2WebBG" width="1205" height="898" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg defaultimg" data-no-retina="">-->
-			<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;" src="http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png">
+		<!-- <div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; backface-visibility: hidden; transform: translate3d(0px, 0px, 0px); visibility: inherit; opacity: 1;"> --><!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png" alt="" title="ivedated_CLOUD2WebBG" width="1205" height="898" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg defaultimg" data-no-retina="">-->
+		<!-- 	<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; visibility: inherit; z-index: 20;" src="http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png"> -->
 			
 			
 		
@@ -58,6 +62,9 @@ body, html {
 <div id="container" class="col-md-6" align="left">
 	<div id="nav">
 		<h3>Welcome <%= @user.first_name %></h3>
+		<p class="thumb">
+		<%= image_tag @user.image.url (:thumb)  %>
+		</p>
 		<p><a href="/profiles/<%= @user.id %>">Edit my profile</a> <a href="/sessions" data-method='delete'>Logout</a></p>
 	</div>
 	<div id="events">
@@ -76,7 +83,7 @@ body, html {
 			<% @events.each do |e| %>
 				<% if e.state == @user.state %>
 					<tr>
-						<td><a href="/events/<%= e.id %>"><%= e.name %></a></td>
+						<td><%= image_tag e.user.image.url (:small)  %><a href="/events/<%= e.id %>"><%= e.name %></a></td>
 						<td><%= e.date.strftime("%B %e %Y") %></td>
 						<td><%= e.city %></td>
 						<td><%= e.user.first_name %></td>
@@ -99,6 +106,7 @@ body, html {
 			<% end %>
 		</table>
 	</div>
+
 	<div id="add_events" class="col-md-6" display="inline-block">
 		<h4>Here are some of the events on other state:</h4>
 		<table>
@@ -116,7 +124,7 @@ body, html {
 			<% @events.each do |e| %>
 				<% if e.state != @user.state %>
 					<tr>
-						<td><a href="/events/<%= e.id %>"><%= e.name %></a></td>
+						<td><%= image_tag e.user.image.url (:small)  %><a href="/events/<%= e.id %>"><%= e.name %></a></td>
 						<td><%= e.date.strftime("%B %e %Y") %></td>
 						<td><%= e.city %></td>
 						<td><%= e.state %></td>
