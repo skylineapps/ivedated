@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :joined_event, through: :joins, source: :event
   has_many :comments
   EMAIL_REGEX = /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]+)\z/i
-  validates :first_name, :last_name, :city, :state, presence: true, length: { in: 2..20 }
+  validates :first_name, :last_name, :city, :state, allow_nil: true, length: { in: 2..20 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }, format: { with: EMAIL_REGEX }
 
   has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150>", small: "75x75>" }, default_url: "/images/:style/missing.png",
