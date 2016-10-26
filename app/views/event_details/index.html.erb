@@ -52,7 +52,7 @@ body, html {
 				</tr>
 				<% @joins.each do |j| %>
 					<tr>
-						<td><%= j.user.first_name %> <%= j.user.last_name %></td>
+						<td><%= image_tag j.user.image.url (:small)  %><%= j.user.first_name %> <%= j.user.last_name %></td>
 						<td><%= j.user.city %></td>
 						<td><%= j.user.state %></td>
 					</tr>
@@ -146,7 +146,7 @@ body, html {
 				<p>There isn't any comment for this Date</p>
 			<% end %>
 			<% @comments.each do |c| %>
-				<p><%= c.user.first_name %> says: <%= c.content %> </p>
+				<p><%= image_tag c.user.image.url (:small)  %><%= c.user.first_name %> says: <%= c.content %> </p>
 			<% end %>
 		</div>
 		<div id="comment" class="col-md-6">
