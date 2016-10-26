@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   get '/joins/:id' => 'joins#create'
   delete '/joins/:id' => 'joins#destroy'
 
-  get '/profiles/:id' => 'profiles#index'
-  
-  get '/profiles/edit' => 'profiles#edit'
+  get '/profiles' => 'profiles#index'
+
+   get '/profiles/edit' => 'profiles#edit'
 
   get '/events/:id' => 'event_details#index'
 
@@ -40,7 +40,9 @@ Rails.application.routes.draw do
 
   patch '/users/:id' => 'users#update'
 
-  post '/profiles/:id' => 'users#update'
+  post '/profiles/index' => 'users#update'
+
+  get '/notice/:id'  => 'users#update'
 
   resources :users
 
