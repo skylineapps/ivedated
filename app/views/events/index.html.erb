@@ -120,7 +120,7 @@ body, html {
 								<a href="/events/<%= e.id %>" data-method='delete'>Delete</a>
 							<% else %>
 								<% if @joinevents.include?(e.id) %>
-									Viewed
+									Liked
 									<a href="/joins/<%= e.id %>" data-method="delete">Cancel</a>
 								<% else %>
 									<a href="/joins/<%= e.id %>">View</a>
