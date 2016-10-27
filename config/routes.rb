@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   delete '/joins/:id' => 'joins#destroy'
 
   get '/profiles/:id' => 'profiles#edit'
-  
 
   get '/profiles/edit/:id' => 'profiles#edit'
 
