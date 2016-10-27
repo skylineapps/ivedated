@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   get '/profiles/:id' => 'profiles#edit'
   
-  post '/profiles/:id' => 'users#update'
 
   get '/profiles/edit/:id' => 'profiles#edit'
 
