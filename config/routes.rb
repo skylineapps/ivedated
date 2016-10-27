@@ -26,9 +26,11 @@ Rails.application.routes.draw do
   get '/joins/:id' => 'joins#create'
   delete '/joins/:id' => 'joins#destroy'
 
-  get '/profiles' => 'profiles#index'
+  get '/profiles/:id' => 'profiles#edit'
 
-   get '/profiles/edit' => 'profiles#edit'
+  get '/profiles/edit/:id' => 'profiles#edit'
+
+  post '/profiles/edit/:id' => 'profiles#edit'
 
   get '/events/:id' => 'event_details#index'
 
