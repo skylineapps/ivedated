@@ -130,7 +130,7 @@ body, html {
 </div>
 
 <h1>Upload Your Image</h1>
-<%= form_for users_path, :html => {:multipart => true} do |f| %>
+<%= form_for @user, :html => {:multipart => true} do |f| %>
 <!--   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
   <%= f.label :last_name %>
