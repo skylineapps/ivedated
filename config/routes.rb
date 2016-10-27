@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   get '/profiles/:id' => 'profiles#edit'
 
+  post '/profiles/:id' => 'profiles#edit'
+
   get '/profiles/edit/:id' => 'profiles#edit'
 
   post '/profiles/edit/:id' => 'profiles#edit'
@@ -41,6 +43,8 @@ Rails.application.routes.draw do
   post '/letters/new' => 'letters#create'
 
   patch '/users/:id' => 'users#update'
+
+  patch '/profiles/:id' => 'users#update'
 
   post '/profiles/index' => 'users#update'
 
