@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   get '/profiles/edit/:id' => 'profiles#edit'
 
   post '/profiles/edit/:id' => 'profiles#edit'
+  
+  post '/profiles/:id' => 'users#update'
 
   get '/events/:id' => 'event_details#index'
 
