@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
   post '/users' => 'users#create'
-  post '/users/edit' => 'users#edit'
+  post '/users/update' => 'users#update'
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
