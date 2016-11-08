@@ -22,6 +22,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: scroll;
 }
 
 .add_events {
@@ -57,7 +58,7 @@ body, html {
 
 		<h2><%= @event.name %></h2>
 		
-		<h3><a href="/letters/">Date Letter</a></h3>
+		<h3><a href="/event_details/show/<%= @event.id %>">Date Letter</a></h3>
 	
 		<h4>Author: <%= @event.user.first_name %> <%= @event.user.last_name %><p class="thumb">
 		<%= image_tag @event.user.image.url (:thumb)  %>
@@ -84,7 +85,7 @@ body, html {
 		<% end %>
 		<% if @event.user_id == session[:user_id] %>
 			<h3>Edit Your Event</h3>
-			<form action="/events/edit/<%= @event.id %>" method='post'>
+			<form action="/events/edit/<%= @event.id %>" method='post' id="letters">
 			<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 				<table>
 					<tr>
@@ -93,7 +94,7 @@ body, html {
 					</tr>
 					<tr>
 						<td>Date</td>
-						<td><input type="date" name="edit_event[date]" min="<%= Time.now.strftime("%Y-%m-%d") %>" value="<%= @event.date %>"></td>
+						<td><input type="date" name="edit_event[date]"  value="<%= @event.date %>"></td>
 					</tr>
 					<tr>
 						<td>Location</td>
@@ -155,9 +156,207 @@ body, html {
 						</td>
 					</tr>
 					<tr>
+						<td>I'm over 21 years old</td>
+						<td><input type="checkbox" value="Yes I'm over 21 years old"  name="edit_event[Q1]"  value="<%= @event.Q1 %>"></td>
+					</tr>
+					<tr>
+						<td>This letter will help me: (check all that applies):&nbsp;</td>
+							<td><label>To get closure for myself&nbsp;</label><input type="checkbox" value="To get closure for myself "  name="edit_event[Q2]"  value="<%= @event.Q2 %>"></td>&nbsp;
+							<td><label>To give my date kudos&nbsp;</label><input type="checkbox" value="To give my date kudos"  name="edit_event[Q3]"  value="<%= @event.Q3 %>"></td>&nbsp;
+							<td><label>To release my feelings&nbsp;</label><input type="checkbox" value="To release my feelings"  name="edit_event[Q4]"  value="<%= @event.Q4 %>"></td>&nbsp;
+							<td><label>To warn the next person&nbsp;</label><input type="checkbox" value="To warn the next person"  name="edit_event[Q5]"  value="<%= @event.Q5 %>"></td>&nbsp;
+							<td><label>To feel validated&nbsp;</label><input type="checkbox" value="To feel validated"  name="edit_event[Q6]"  value="<%= @event.Q6 %>"></td>&nbsp;
+							<td><label>To speak with someone who has dated them &nbsp;</label><input type="checkbox" value="To speak with someone who has dated them"  name="edit_event[Q7]"  value="<%= @event.Q7 %>"></td>&nbsp;
+							<td><label>To tell my side of the story &nbsp;</label><input type="checkbox" value="To tell my side of the story"  name="edit_event[Q8]"  value="<%= @event.Q8 %>"></td>&nbsp;
+
+					</tr>
+					<tr>
+						<td>I have known my date for: </td>
+						<td><input type="textbox" name="edit_event[Q9]"  value="<%= @event.Q9 %>"></td>
+					</tr>
+					<tr><td>Where did you meet your date?</td>
+						<td><label>Online Dating &nbsp;</label><input type="checkbox" value="Online Dating"  name="edit_event[Q10]"  value="<%= @event.Q10 %>"></td>&nbsp;
+						<td><label>Real life &nbsp;</label><input type="checkbox" value="Real life"  name="edit_event[Q11]"  value="<%= @event.Q11 %>"></td>&nbsp;
+						<td><label>Friends / Family intro &nbsp;</label><input type="checkbox" value="Friends / family intro"  name="edit_event[Q12]"  value="<%= @event.Q12 %>"></td>&nbsp;
+
+					<tr><td>Things you like about your date:</td>
+						<td><label>Generous &nbsp;</label><input type="checkbox" value="Generous"  name="edit_event[Q13]"  value="<%= @event.Q13 %>"></td>&nbsp;
+						<td><label>Kind &nbsp;</label><input type="checkbox" value="Kind"  name="edit_event[Q14]"  value="<%= @event.Q14 %>"></td>&nbsp;
+						<td><label>Thoughtful &nbsp;</label><input type="checkbox" value="Thoughtful"  name="edit_event[Q14]"  value="<%= @event.Q14 %>"></td>&nbsp;
+						<td><label>Honest &nbsp;</label><input type="checkbox" value="Honest"  name="edit_event[Q14]"  value="<%= @event.Q14 %>"></td>&nbsp;
+						<td><label>Open &nbsp;</label><input type="checkbox" value="Open"  name="edit_event[Q15]"  value="<%= @event.Q15 %>"></td>&nbsp;
+						<td><label>Smells Nice &nbsp;</label><input type="checkbox" value="Smells Nice"  name="edit_event[Q16]"  value="<%= @event.Q16 %>"></td>&nbsp;
+						<td><label>Trustworthy &nbsp;</label><input type="checkbox" value="Trustworthy"  name="edit_event[Q17]"  value="<%= @event.Q17 %>"></td>&nbsp;
+						<td><label>Fun &nbsp;</label><input type="checkbox" value="Fun"  name="edit_event[Q18]"  value="<%= @event.Q18 %>"></td>&nbsp;
+						<tr>
+						<td><label>Loyal &nbsp;</label><input type="checkbox" value="Loyal"  name="edit_event[Q19]"  value="<%= @event.Q19 %>"></td>&nbsp;
+						<td><label>Good Listener &nbsp;</label><input type="checkbox" value="Good Listener"  name="edit_event[Q20]"  value="<%= @event.Q20 %>"></td>&nbsp;
+						<td><label>Good Communicator &nbsp;</label><input type="checkbox" value="Good Communicator"  name="edit_event[Q21]"  value="<%= @event.Q21 %>"></td>&nbsp;
+						<td><label>Humble &nbsp;</label><input type="checkbox" value="Humble"  name="edit_event[Q22]"  value="<%= @event.Q22 %>"></td>&nbsp;
+						<td><label>Makes Plans &nbsp;</label><input type="checkbox" value="Makes Plans"  name="edit_event[Q23]"  value="<%= @event.Q23 %>"></td>&nbsp;
+						<td><label>Follows Up &nbsp;</label><input type="checkbox" value="Follows Up"  name="edit_event[Q24]"  value="<%= @event.Q24 %>"></td>&nbsp;
+						<td><label>Spiritual &nbsp;</label><input type="checkbox" value="Spiritual"  name="edit_event[Q25]"  value="<%= @event.Q25 %>"></td>&nbsp;
+						</tr>
+						<tr>
+						<td><label>Clean &nbsp;</label><input type="checkbox" value="Clean"  name="edit_event[Q26]"  value="<%= @event.Q26 %>"></td>&nbsp;
+						<td><label>apprachable &nbsp;</label><input type="checkbox" value="apprachable"  name="edit_event[Q27]"  value="<%= @event.Q27 %>"></td>&nbsp;
+						<td><label>Responsible &nbsp;</label><input type="checkbox" value="Responsible"  name="edit_event[Q28]"  value="<%= @event.Q28 %>"></td>&nbsp;
+						<td><label>Easy Going &nbsp;</label><input type="checkbox" value="Easy Going"  name="edit_event[Q29]"  value="<%= @event.Q29 %>"></td>&nbsp;
+						<td><label>Optimistic &nbsp;</label><input type="checkbox" value="Optimistic"  name="edit_event[Q30]"  value="<%= @event.Q30 %>"></td>&nbsp;
+						<td><label>Ambitious &nbsp;</label><input type="checkbox" value="Ambitious"  name="edit_event[Q31]"  value="<%= @event.Q31 %>"></td>&nbsp;
+						<td><label>Caring &nbsp;</label><input type="checkbox" value="Caring"  name="edit_event[Q32]"  value="<%= @event.Q32 %>"></td>&nbsp;
+						</tr>
+					</tr>
+
+					<tr><td>Things you dislike about your date:</td>
+						<td><label>Cheater &nbsp;</label><input type="checkbox" value="Cheater"  name="edit_event[Q33]"  value="<%= @event.Q33 %>"></td>&nbsp;
+						<td><label>Liar &nbsp;</label><input type="checkbox" value="Liar"  name="edit_event[Q34]"  value="<%= @event.Q34 %>"></td>&nbsp;
+						<td><label>Selfish &nbsp;</label><input type="checkbox" value="Selfish"  name="edit_event[Q35]"  value="<%= @event.Q35 %>"></td>&nbsp;
+						<td><label>Ungrateful &nbsp;</label><input type="checkbox" value="Ungrateful"  name="edit_event[Q36]"  value="<%= @event.Q36 %>"></td>&nbsp;
+						<td><label>Living in the past &nbsp;</label><input type="checkbox" value="Living in the past"  name="edit_event[Q37]"  value="<%= @event.Q37 %>"></td>&nbsp;
+						<td><label>Blames Others &nbsp;</label><input type="checkbox" value="Blames Others"  name="edit_event[Q38]"  value="<%= @event.Q38 %>"></td>&nbsp;
+						<td><label>Narcissist &nbsp;</label><input type="checkbox" value="Narcissist"  name="edit_event[Q39]"  value="<%= @event.Q39 %>"></td>&nbsp;
+						<td><label>Boring &nbsp;</label><input type="checkbox" value="Boring"  name="edit_event[Q40]"  value="<%= @event.Q40 %>"></td>&nbsp;
+						<td><label>Complainer &nbsp;</label><input type="checkbox" value="Complainer"  name="edit_event[Q41]"  value="<%= @event.Q41 %>"></td>&nbsp;
+						<tr>
+						<td><label>Greedy &nbsp;</label><input type="checkbox" value="Greedy"  name="edit_event[Q42]"  value="<%= @event.Q42 %>"></td>&nbsp;
+						<td><label>Cheap &nbsp;</label><input type="checkbox" value="Cheap"  name="edit_event[Q43]"  value="<%= @event.Q43 %>"></td>&nbsp;
+						<td><label>Lazy &nbsp;</label><input type="checkbox" value="Lazy"  name="edit_event[Q44]"  value="<%= @event.Q44 %>"></td>&nbsp;
+						<td><label>irresponsible &nbsp;</label><input type="checkbox" value="irresponsible"  name="edit_event[Q45]"  value="<%= @event.Q45 %>"></td>&nbsp;
+						<td><label>Defensive &nbsp;</label><input type="checkbox" value="Defensive"  name="edit_event[Q46]"  value="<%= @event.Q46 %>"></td>&nbsp;
+						<td><label>Childish &nbsp;</label><input type="checkbox" value="Childish"  name="edit_event[Q47]"  value="<%= @event.Q47 %>"></td>&nbsp;
+						<td><label>Avoidant &nbsp;</label><input type="checkbox" value="Avoidant"  name="edit_event[Q48]"  value="<%= @event.Q48 %>"></td>&nbsp;
+						<td><label>Moody &nbsp;</label><input type="checkbox" value="Moody"  name="edit_event[Q49]"  value="<%= @event.Q49 %>"></td>&nbsp;
+						<td><label>Bipolar &nbsp;</label><input type="checkbox" value="Bipolar"  name="edit_event[Q50]"  value="<%= @event.Q50 %>"></td>&nbsp;
+
+						</tr>
+
+						<tr>
+						<td><label>Alcoholic &nbsp;</label><input type="checkbox" value="Alcoholic"  name="edit_event[Q51]"  value="<%= @event.Q51 %>"></td>&nbsp;
+						<td><label>Stoner &nbsp;</label><input type="checkbox" value="Stoner"  name="edit_event[Q52]"  value="<%= @event.Q52 %>"></td>&nbsp;
+						<td><label>Anger Issues &nbsp;</label><input type="checkbox" value="Anger Issues"  name="edit_event[Q53]"  value="<%= @event.Q53 %>"></td>&nbsp;
+						<td><label>Mommy Issues &nbsp;</label><input type="checkbox" value="Mommy Issues"  name="edit_event[Q54]"  value="<%= @event.Q54 %>"></td>&nbsp;
+						<td><label>Materialistic &nbsp;</label><input type="checkbox" value="Materialistic"  name="edit_event[Q55]"  value="<%= @event.Q55 %>"></td>&nbsp;
+						<td><label>Arrogant &nbsp;</label><input type="checkbox" value="Arrogant"  name="edit_event[Q56]"  value="<%= @event.Q56 %>"></td>&nbsp;
+						<td><label>Know It All &nbsp;</label><input type="checkbox" value="Know It All"  name="edit_event[Q57]"  value="<%= @event.Q57 %>"></td>&nbsp;
+						<td><label>Bad Listener &nbsp;</label><input type="checkbox" value="Bad Listener"  name="edit_event[Q58]"  value="<%= @event.Q58 %>"></td>&nbsp;
+						<td><label>Unsupportive &nbsp;</label><input type="checkbox" value="Unsupportive"  name="edit_event[Q59]"  value="<%= @event.Q59 %>"></td>&nbsp;
+
+						</tr>
+
+						<tr>
+						<td><label>Rude &nbsp;</label><input type="checkbox" value="Rude"  name="edit_event[Q60]"  value="<%= @event.Q60 %>"></td>&nbsp;
+						<td><label>Unreliable &nbsp;</label><input type="checkbox" value="Unreliable"  name="edit_event[Q61]"  value="<%= @event.Q61 %>"></td>&nbsp;
+						<td><label>Inconsiderate &nbsp;</label><input type="checkbox" value="Inconsiderate"  name="edit_event[Q62]"  value="<%= @event.Q62 %>"></td>&nbsp;
+						<td><label>Financial Problems &nbsp;</label><input type="checkbox" value="Financial Problems"  name="edit_event[Q63]"  value="<%= @event.Q63 %>"></td>&nbsp;
+						<td><label>Mental Disorder &nbsp;</label><input type="checkbox" value="Mental Disorder"  name="edit_event[Q64]"  value="<%= @event.Q64 %>"></td>&nbsp;
+						<td><label>Messy &nbsp;</label><input type="checkbox" value="Messy"  name="edit_event[Q65]"  value="<%= @event.Q65 %>"></td>&nbsp;
+						<td><label>Manipulative &nbsp;</label><input type="checkbox" value="Manipulative"  name="edit_event[Q66]"  value="<%= @event.Q66 %>"></td>&nbsp;
+						<td><label>Deceitful &nbsp;</label><input type="checkbox" value="Deceitful"  name="edit_event[Q67]"  value="<%= @event.Q67 %>"></td>&nbsp;
+						<td><label>Game Player &nbsp;</label><input type="checkbox" value="Game Player"  name="edit_event[Q68]"  value="<%= @event.Q68 %>"></td>&nbsp;
+
+						<tr>
+						<td><label>Delusional &nbsp;</label><input type="checkbox" value="Delusional"  name="edit_event[Q69]"  value="<%= @event.Q69 %>"></td>&nbsp;
+						<td><label>Dismissive &nbsp;</label><input type="checkbox" value="Dismissive"  name="edit_event[Q70]"  value="<%= @event.Q70 %>"></td>&nbsp;
+						<td><label>Passive Agressive &nbsp;</label><input type="checkbox" value="Passive Agressive"  name="edit_event[Q71]"  value="<%= @event.Q71 %>"></td>&nbsp;
+						<td><label>Indecisive &nbsp;</label><input type="checkbox" value="Indecisive"  name="edit_event[Q72]"  value="<%= @event.Q72 %>"></td>&nbsp;
+						<td><label>Follower &nbsp;</label><input type="checkbox" value="Follower"  name="edit_event[Q73]"  value="<%= @event.Q73 %>"></td>&nbsp;
+						</tr>
+
+					<tr>
+						<td>What is your best memory of your date? </td>
+						<td><input type="textarea" name="edit_event[Q74]"  value="<%= @event.Q74 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What is attractive about your date? </td>
+						<td><input type="textarea" name="edit_event[Q75]"  value="<%= @event.Q75 %>"></td>
+					</tr>
+					<tr>
+						<td>What caused problems in the relationship? </td>
+						<td><input type="textarea" name="edit_event[Q76]"  value="<%= @event.Q76 %>"></td>
+					</tr>
+
+					<tr>
+						<td>Was there anything that can be done differently? </td>
+						<td><input type="textarea" name="edit_event[Q77]"  value="<%= @event.Q77 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What would you like to tell your date? </td>
+						<td><input type="textarea" name="edit_event[Q78]"  value="<%= @event.Q78 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What would you like from your date? </td>
+						<td><input type="textarea" name="edit_event[Q79]"  value="<%= @event.Q79 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What advise would you give to others about your date? </td>
+						<td><input type="textarea" name="edit_event[Q80]"  value="<%= @event.Q80 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What closure would be satisfactory to you? </td>
+						<td><input type="textarea" name="edit_event[Q81]"  value="<%= @event.Q81 %>"></td>
+					</tr>
+
+					<tr>
+						<td>Would you recommend your date to others? (please give reason) </td>
+						<td><input type="textarea" name="edit_event[Q82]"  value="<%= @event.Q82 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What experiences did you learn from this date? </td>
+						<td><input type="textarea" name="edit_event[Q83]"  value="<%= @event.Q83 %>"></td>
+					</tr>
+
+					<tr>
+						<td>Would you want to be contacted by others about this date? </td>
+						<td><input type="textarea" name="edit_event[Q84]"  value="<%= @event.Q84 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What song would you dedicate your date? </td>
+						<td><input type="textarea" name="edit_event[Q85]"  value="<%= @event.Q85 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What is the one sentence you would like to hear from your date? </td>
+						<td><input type="textarea" name="edit_event[Q86]"  value="<%= @event.Q86 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What is your date's race? </td>
+						<td><input type="textarea" name="edit_event[Q87]"  value="<%= @event.Q87 %>"></td>
+					</tr>
+
+					<tr>
+						<td>How tall is your date? </td>
+						<td><input type="textarea" name="edit_event[Q88]"  value="<%= @event.Q88 %>"></td>
+					</tr>
+
+					<tr>
+						<td>What is the age of your date? </td>
+						<td><input type="textarea" name="edit_event[Q89]"  value="<%= @event.Q89 %>"></td>
+					</tr>
+
+					<tr>
+						<td>Do you want to share his name? (optional) </td>
+						<td><input type="textarea" name="edit_event[Q90]"  value="<%= @event.Q90 %>"></td>
+					</tr>
+
+					<tr>
+						<td>If you like to share more, please enter information here </td>
+						<td><input type="textarea" name="edit_event[Q91]"  value="<%= @event.Q91 %>"></td>
+					</tr>
+
+					<tr>
 						<td></td>
 						<td><input type="submit" value="Edit Event"></td>
 					</tr>
+
 				</table>
 			</form>
 		<% end %>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700italic,700'
+        rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,400italic,700italic,700'
+        rel='stylesheet' type='text/css'>
+
+    <%= stylesheet_link_tag 'main', 'font-awesome', 'application','responsive','bootstrap','bootstrap.min' %>
+    <%= javascript_include_tag 'jquery.min', 'script', 'modernizr.min', 'jquery.nicescroll.min', 'bootstrap.min', 'bootstrap' %>
+    <%= csrf_meta_tags %>
+
+<style>
+body, html {
+    background-image: url("http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png");
+    height: 150%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: scroll;
+}
+
+.add_events {
+    display: inline-block;
+}
+
+.thumb img{
+    border: 4px solid #F45A5D;
+    border-radius: 50%;
+    margin: 10px 0;
+    max-width: 140px;
+    width: 100%;
+}
+
+.thumb2 img{
+    border: 4px solid #F45A5D;
+    border-radius: 50%;
+    margin: 10px 0;
+    max-width: 70px;
+    height: 100%;
+    width: 70%;
+}
+
+</style>
+</head>
+
+<body>
+<div id="event_details" class="col-md-6">
+    <p><a href="/events">Events Dashboard</a> <a href="/sessions" data-method='delete'>Logout</a></p>
+<h1>show letters in events_details.show.html.erb</h1>
+
+
+	<div id="letter">
+		
+		<% @events.each do |e| %>
+			<% if @event.id == e.id %>
+			<td><p class="thumb2"><%= image_tag e.user.image.url (:small)  %></p>
+			<td><h4><%= e.user.username %></h4></td>
+			<a href="/events/<%= e.id %>"><%= e.name %></a></td>
+						<td><%= e.date.strftime("%B %e %Y") %></td>
+						<td><%= e.city %></td>
+						<td><%= e.Q1 %></td><br>
+						<td><label>I am sharing my experience because:</label> <%= e.Q2 %>;&nbsp;</td>	
+						<td><%= e.Q3 %>;&nbsp;</td>
+						<td><%= e.Q4 %>;&nbsp;</td>
+						<td><%= e.Q5 %>;&nbsp;</td>
+						<td><%= e.Q6 %>;&nbsp;</td>
+						<td><%= e.Q7 %>;&nbsp;</td>
+						<td><%= e.Q8 %>;&nbsp;</td>
+						<br>
+
+						<td><label>I have known my date for:</label> <%= e.Q9 %>;&nbsp;</td>
+						<br>
+
+						<td><label>I met my date:</label> <%= e.Q10 %>&nbsp;</td>
+						<td><%= e.Q11 %>&nbsp;</td>
+						<td><%= e.Q12 %>&nbsp;</td>
+						<br>
+
+
+						<td><label>Things I like about my date:</label> <%= e.Q13 %>&nbsp;</td>
+						<td><%= e.Q14 %>&nbsp;</td>
+						<td><%= e.Q15 %>&nbsp;</td>
+						<td><%= e.Q16 %>&nbsp;</td>
+						<td><%= e.Q17 %>&nbsp;</td>
+						<td><%= e.Q18 %>&nbsp;</td>
+						<td><%= e.Q19 %>&nbsp;</td>
+						<td><%= e.Q20 %>&nbsp;</td>
+						<td><%= e.Q21 %>&nbsp;</td>
+						<td><%= e.Q22 %>&nbsp;</td>
+						<td><%= e.Q23 %>&nbsp;</td>
+						<td><%= e.Q24 %>&nbsp;</td>
+						<td><%= e.Q25 %>&nbsp;</td>
+						<td><%= e.Q26 %>&nbsp;</td>
+						<td><%= e.Q27 %>&nbsp;</td>
+						<td><%= e.Q28 %>&nbsp;</td>
+						<td><%= e.Q29 %>&nbsp;</td>
+						<td><%= e.Q30 %>&nbsp;</td>
+						<td><%= e.Q31 %>&nbsp;</td>
+						<td><%= e.Q32 %>&nbsp;</td>
+						<br>
+						<td><label>Things I dislike about my date:</label> <%= e.Q33 %>&nbsp;</td>
+						<td><%= e.Q34 %>&nbsp;</td>
+						<td><%= e.Q35 %>&nbsp;</td>
+						<td><%= e.Q36 %>&nbsp;</td>
+						<td><%= e.Q37 %>&nbsp;</td>
+						<td><%= e.Q38 %>&nbsp;</td>
+						<td><%= e.Q39 %>&nbsp;</td>
+						<td><%= e.Q40 %>&nbsp;</td>
+						<td><%= e.Q41 %>&nbsp;</td>
+						<td><%= e.Q42 %>&nbsp;</td>
+						<td><%= e.Q43 %>&nbsp;</td>
+						<td><%= e.Q44 %>&nbsp;</td>
+						<td><%= e.Q45 %>&nbsp;</td>
+						<td><%= e.Q46 %>&nbsp;</td>
+						<td><%= e.Q47 %>&nbsp;</td>
+						<td><%= e.Q48 %>&nbsp;</td>
+						<td><%= e.Q49 %>&nbsp;</td>
+						<td><%= e.Q50 %>&nbsp;</td>
+						<td><%= e.Q51 %>&nbsp;</td>
+						<td><%= e.Q52 %>&nbsp;</td>
+						<td><%= e.Q53 %>&nbsp;</td>
+						<td><%= e.Q54 %>&nbsp;</td>
+						<td><%= e.Q55 %>&nbsp;</td>
+						<td><%= e.Q56 %>&nbsp;</td>
+						<td><%= e.Q57 %>&nbsp;</td>
+						<td><%= e.Q58 %>&nbsp;</td>
+						<td><%= e.Q59 %>&nbsp;</td>
+						<td><%= e.Q60 %>&nbsp;</td>
+						<td><%= e.Q61 %>&nbsp;</td>
+						<td><%= e.Q62 %>&nbsp;</td>
+						<td><%= e.Q63 %>&nbsp;</td>
+						<td><%= e.Q64 %>&nbsp;</td>
+						<td><%= e.Q65 %>&nbsp;</td>
+						<td><%= e.Q66 %>&nbsp;</td>
+						<td><%= e.Q67 %>&nbsp;</td>
+						<td><%= e.Q68 %>&nbsp;</td>
+						<td><%= e.Q69 %>&nbsp;</td>
+						<td><%= e.Q70 %>&nbsp;</td>
+						<td><%= e.Q71 %>&nbsp;</td>
+						<td><%= e.Q72 %>&nbsp;</td>
+						<td><%= e.Q73 %>&nbsp;</td>
+						<br>
+						<td><label>The best memory of my date:</label> <%= e.Q74 %>&nbsp;</td><br>
+						<td><label>What is attractive about my date:</label> <%= e.Q75 %>&nbsp;</td><br>
+						<td><label>What caused problems in the relationship:</label> <%= e.Q76 %>&nbsp;</td><br>
+						<td><label>What will you do differently:</label> <%= e.Q77 %>&nbsp;</td><br>
+						<td><label>What do you want to tell your date:</label> <%= e.Q78 %>&nbsp;</td><br>
+						<td><label>What would you like from your date:</label> <%= e.Q79 %>&nbsp;</td><br>
+						<td><label>What advice would you give others about your date:</label> <%= e.Q80 %>&nbsp;</td><br>
+						<td><label>What closure would be satisfactory to you:</label> <%= e.Q81 %>&nbsp;</td><br>
+						<td><label>Would you recommend your date to others:</label> <%= e.Q82 %>&nbsp;</td><br>
+						<td><label>What experience did you learn:</label> <%= e.Q83 %>&nbsp;</td><br>
+						<td><label>Would you be willing to be contacted by others:</label> <%= e.Q84 %>&nbsp;</td><br>
+						<td><label>What song(s) would you dedicate to your date:</label> <%= e.Q85 %>&nbsp;</td><br>
+						<td><label>What is the one sentence you like to hear from your date:</label> <%= e.Q86 %>&nbsp;</td><br>
+						<td><label>What race is your date:</label> <%= e.Q87 %>&nbsp;</td><br>
+						<td><label>How tall is your date:</label> <%= e.Q88 %>&nbsp;</td><br>
+						<td><label>What is the age of your date:</label> <%= e.Q89 %>&nbsp;</td><br>
+						<td><label>What is your date's name (optional):</label> <%= e.Q90 %>&nbsp;</td><br>
+						<td><label>Additional Information:</label> <%= e.Q91 %>&nbsp;</td><br>		
+
+			<% end %>
+		<% end %>
+
+</body>
