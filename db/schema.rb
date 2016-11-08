@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161021235714) do
+ActiveRecord::Schema.define(version: 20161104213025) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,28 @@ ActiveRecord::Schema.define(version: 20161021235714) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "date"
+    t.string   "Q1"
+    t.string   "Q2"
+    t.string   "Q3"
+    t.string   "Q4"
+    t.string   "Q5"
+    t.string   "Q6"
+    t.string   "Q7"
+    t.string   "Q8"
+    t.string   "Q9"
+    t.string   "Q10"
+    t.string   "Q11"
+    t.string   "Q12"
+    t.string   "Q13"
+    t.string   "Q14"
+    t.string   "Q15"
+    t.string   "Q16"
+    t.string   "Q17"
+    t.string   "Q18"
+    t.string   "Q19"
+    t.string   "Q20"
+    t.string   "Q21"
   end
 
   add_index "letters", ["event_id"], name: "index_letters_on_event_id", using: :btree
@@ -74,6 +96,7 @@ ActiveRecord::Schema.define(version: 20161021235714) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "username"
   end
 
   add_foreign_key "comments", "events"

@@ -159,7 +159,7 @@ In the event that you die before the end of your subscription period, your estat
 Please Contact Us with any questions regarding this agreement. I’ve Dated.com is a trademark of I’ve Dated.com
 </p>
 
-<form action="/sessions" method="post">
+<!-- <form action="/profiles/index" method="post"> -->
 <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
     <fieldset>
         <legend>Welcome to I've Dated</legend>
@@ -181,20 +181,20 @@ Please Contact Us with any questions regarding this agreement. I’ve Dated.com 
         <p class="field-guide">What's your name?</p>
 
         <!-- Email validation x@y.zz -->    
-       <!--  <input type="email" name="email" id="email" autocomplete="off" required pattern="(.+)@(.+){1,}\.(.+){2,}"/>
+        <input type="email" name="email" id="email" autocomplete="off" required pattern="(.+)@(.+){1,}\.(.+){2,}"/>
         <label for="email">Email</label>
-        <p class="field-guide">What's your email address?</p> -->
+        <p class="field-guide">What's your email address?</p>
         
         <!-- US phone number validation
         (111) 222-3333, 1112223333 or 111-222-3333
         -->
-        <!-- <input type="tel" name="tel" id="tel" autocomplete="off" autocorrect="off" pattern="^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$|[0-9]{9,}"/>
+       <!--  <input type="tel" name="tel" id="tel" autocomplete="off" autocorrect="off" pattern="^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$|[0-9]{9,}"/>
         <label for="tel">Phone</label>
-        <p class="field-guide">Formats: (111) 222-3333, 1112223333 or 111-222-3333</p>
+        <p class="field-guide">Formats: (111) 222-3333, 1112223333 or 111-222-3333</p> -->
 
-        <input type="password" name="pass" id="password" required pattern="^(?=.*[A-Z\u00C0-\u00DF].*)(?=.*[0-9].*)(?=.*[a-z\u00E0-\u00FF].*).{8,}$"/>
+        <input type="password" name="pass" id="password" >
         <label for="password">Password</label>      
-        <p class="field-guide">Minimum 8 characters, a number, a capital- and a lowercase letter </p> -->
+        <p class="field-guide">Minimum 8 characters, a number, a capital- and a lowercase letter </p>
 
 
         <input type="checkbox" name="terms" id="terms" required />
@@ -203,7 +203,7 @@ Please Contact Us with any questions regarding this agreement. I’ve Dated.com 
         <input type="checkbox" name="newsletter" id="newsletter"/>
         <label for="newsletter">Yes please sign me up</label>            
 
-        <button>Submit</button>
+       <button>submit</button>
         <!-- 
         IE10 does not support pointer-events: none 
         If you care about IE10 you can add a disabled
@@ -212,11 +212,11 @@ Please Contact Us with any questions regarding this agreement. I’ve Dated.com 
         You could also use a cover element to place
         above the button   
         -->
-        <button disabled>Submit</button>        
+        <button disabled>Submit</button>  
 
     </fieldset>
-</form>
-
+<!-- </form>
+ -->
 </div>
 
 </body>

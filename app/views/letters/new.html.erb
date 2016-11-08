@@ -1,3 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet'
+        type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700italic,700'
+        rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700,900' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,400italic,700italic,700'
+        rel='stylesheet' type='text/css'>
+
+    <%= stylesheet_link_tag 'main', 'font-awesome', 'application','responsive','bootstrap','bootstrap.min' %>
+    <%= javascript_include_tag 'jquery.min', 'script', 'modernizr.min', 'jquery.nicescroll.min', 'bootstrap.min', 'bootstrap' %>
+    <%= csrf_meta_tags %>
+
+<style>
+body, html {
+	background-image: url("http://ivedated.com/wp-content/uploads/2016/06/ivedated_CLOUD2WebBG.png");
+    height: 150%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    overflow: scroll;
+
+}
+
+.add_events {
+	display: inline-block;
+}
+
+.thumb img{
+    border: 4px solid #F45A5D;
+    border-radius: 50%;
+    margin: 10px 0;
+    max-width: 140px;
+    width: 100%;
+}
+
+.thumb2 img{
+    border: 4px solid #F45A5D;
+    border-radius: 50%;
+    margin: 10px 0;
+    max-width: 70px;
+    height: 100%;
+    width: 70%;
+}
+
+</style>
+</head>
+
+<div id="event_details" class="col-md-6">
+	<p><a href="/events">Events Dashboard</a> <a href="/sessions" data-method='delete'>Logout</a></p>
+	
 <h1>Letters#new</h1>
 <p>Find me in app/views/letters/new.html.erb</p>
 
@@ -11,122 +66,122 @@
 		<form action="/letters/new" method='post'>
 		<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 		
-		
+        <input type="hidden" name='letter[event_id]' value="<%= @event.id %>">
 			
 
 					<h3>Why do you need to write this letter? Check all that apply</h3>
 
--          <td><input name='letter[S1Q1]' type="checkbox" value="true" /><label for="S1Q1">To get closure for myself</label></td>
+-          <td><input name='letter[Q1]' type="checkbox" value="true" /><label for="Q1">To get closure for myself</label></td>
 
 <br>
 
--          <td><input name='letter[S1Q2]' type="checkbox" value="true" /><label for="S1Q2">To release my feelings</label></td>
+-          <td><input name='letter[Q2]' type="checkbox" value="true" /><label for="Q2">To release my feelings</label></td>
 
 <br>
--          <td><input name='letter[S1Q3]' type="checkbox" value="true" /><label for="S1Q3">To give this person kudos</label></td>
+-          <td><input name='letter[Q3]' type="checkbox" value="true" /><label for="Q3">To give this person kudos</label></td>
 <br>
 
--          <td><input name='letter[S1Q4]' type="checkbox" value="true" /><label for="S1Q4">To warn the next person who dates them</label></td>
+-          <td><input name='letter[Q4]' type="checkbox" value="true" /><label for="Q4">To warn the next person who dates them</label></td>
 <br>
 
--          <td><input name='letter[S1Q5]' type="checkbox" value="true" /><label for="S1Q5">To feel validated</label></td>
+-          <td><input name='letter[Q5]' type="checkbox" value="true" /><label for="Q5">To feel validated</label></td>
 <br>
 
--          <td><input name='letter[S1Q6]' type="checkbox" value="true" /><label for="S1Q6">To help others from heartache</label></td>
+-          <td><input name='letter[Q6]' type="checkbox" value="true" /><label for="Q6">To help others from heartache</label></td>
 <br>
 
--          <td><input name='letter[S1Q7]' type="checkbox" value="true" /><label for="S1Q7">I’m hoping to speak with someone who’s dated them</label></td>
+-          <td><input name='letter[Q7]' type="checkbox" value="true" /><label for="Q7">I’m hoping to speak with someone who’s dated them</label></td>
 <br>
 
--               <td><input name='letter[S1Q8]' type="checkbox" value="true" /><label for="S1Q8">To tell my side of the story</label></td>
+-               <td><input name='letter[Q8]' type="checkbox" value="true" /><label for="Q8">To tell my side of the story</label></td>
 <br>
 
  
 
-<td><label for="S1Q9">1.        How long have you known this person?</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">1.        How long have you known this person?</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
    
 
 2.       Where did you meet this person?
 
--          <td><input name='letter[S1Q10]' type="checkbox" value="true" /><label for="S1Q10">Dating site</label></td>
+-          <td><input name='letter[Q10]' type="checkbox" value="true" /><label for="Q10">Dating site</label></td>
 
 
--          <td><input name='letter[S1Q11]' type="checkbox" value="true" /><label for="S1Q11">Dating app</label></td>
+-          <td><input name='letter[Q11]' type="checkbox" value="true" /><label for="Q11">Dating app</label></td>
 
 
--          <td><input name='letter[S1Q12]' type="checkbox" value="true" /><label for="S1Q12">Real Life</label></td>
+-          <td><input name='letter[Q12]' type="checkbox" value="true" /><label for="Q12">Real Life</label></td>
 <br>
 
 
 3.       Check all the positive traits that apply <br>
 
 
-- <td><input name='letter[S1Q13]' type="checkbox" value="true" /><label for="S1Q13">generous</label></td>
+- <td><input name='letter[Q13]' type="checkbox" value="true" /><label for="Q13">generous</label></td>
 <br>
-- <td><input name='letter[S1Q14]' type="checkbox" value="true" /><label for="S1Q14">Kind</label></td>
+- <td><input name='letter[Q14]' type="checkbox" value="true" /><label for="Q14">Kind</label></td>
 <br>
-- <td><input name='letter[S1Q15]' type="checkbox" value="true" /><label for="S1Q15">Thoughtful</label></td>
-<br>
-
-- <td><input name='letter[S1Q16]' type="checkbox" value="true" /><label for="S1Q16">Honest</label></td>
+- <td><input name='letter[Q15]' type="checkbox" value="true" /><label for="Q15">Thoughtful</label></td>
 <br>
 
-- <td><input name='letter[S1Q17]' type="checkbox" value="true" /><label for="S1Q17">Open</label></td>
-<br>
-- <td><input name='letter[S1Q18]' type="checkbox" value="true" /><label for="S1Q18">Smells Nice</label></td>
+- <td><input name='letter[Q16]' type="checkbox" value="true" /><label for="Q16">Honest</label></td>
 <br>
 
-- <td><input name='letter[S1Q19]' type="checkbox" value="true" /><label for="S1Q19">trustworthy</label></td>
+- <td><input name='letter[Q17]' type="checkbox" value="true" /><label for="Q17">Open</label></td>
 <br>
-- <td><input name='letter[S1Q20]' type="checkbox" value="true" /><label for="S1Q20">reliable</label></td>
-<br>
-- <td><input name='letter[S1Q21]' type="checkbox" value="true" /><label for="S1Q21">sincere</label></td>
-<br>
-- <td><input name='letter[S1Q22]' type="checkbox" value="true" /><label for="S1Q22">Fun</label></td>
+- <td><input name='letter[Q18]' type="checkbox" value="true" /><label for="Q18">Smells Nice</label></td>
 <br>
 
-- <td><input name='letter[S1Q23]' type="checkbox" value="true" /><label for="S1Q23">Loyal</label></td>
+- <td><input name='letter[Q19]' type="checkbox" value="true" /><label for="Q19">trustworthy</label></td>
 <br>
-- <td><input name='letter[S1Q24]' type="checkbox" value="true" /><label for="S1Q24">Good Listener</label></td>
+- <td><input name='letter[Q20]' type="checkbox" value="true" /><label for="Q20">reliable</label></td>
 <br>
-- <td><input name='letter[S1Q25]' type="checkbox" value="true" /><label for="S1Q25">integrity</label></td>
+- <td><input name='letter[Q21]' type="checkbox" value="true" /><label for="Q21">sincere</label></td>
 <br>
-- <td><input name='letter[S1Q26]' type="checkbox" value="true" /><label for="S1Q26">Good Communicator</label></td>
+- <td><input name='letter[Q22]' type="checkbox" value="true" /><label for="Q22">Fun</label></td>
 <br>
-- <td><input name='letter[S1Q27]' type="checkbox" value="true" /><label for="S1Q27">Humble</label></td>
+
+- <td><input name='letter[Q23]' type="checkbox" value="true" /><label for="Q23">Loyal</label></td>
 <br>
-- <td><input name='letter[S1Q28]' type="checkbox" value="true" /><label for="S1Q28">Giving</label></td>
+- <td><input name='letter[Q24]' type="checkbox" value="true" /><label for="Q24">Good Listener</label></td>
 <br>
-- <td><input name='letter[S1Q29]' type="checkbox" value="true" /><label for="S1Q29">Makes Plans</label></td>
+- <td><input name='letter[Q25]' type="checkbox" value="true" /><label for="Q25">integrity</label></td>
 <br>
-- <td><input name='letter[S1Q30]' type="checkbox" value="true" /><label for="S1Q30">Follows Up</label></td>
+- <td><input name='letter[Q26]' type="checkbox" value="true" /><label for="Q26">Good Communicator</label></td>
 <br>
-- <td><input name='letter[S1Q31]' type="checkbox" value="true" /><label for="S1Q31">Person of their Word</label></td>
+- <td><input name='letter[Q27]' type="checkbox" value="true" /><label for="Q27">Humble</label></td>
 <br>
-- <td><input name='letter[S1Q32]' type="checkbox" value="true" /><label for="S1Q32">Spiritual</label></td>
+- <td><input name='letter[Q28]' type="checkbox" value="true" /><label for="Q28">Giving</label></td>
 <br>
-- <td><input name='letter[S1Q33]' type="checkbox" value="true" /><label for="S1Q33">Clean</label></td>
+- <td><input name='letter[Q29]' type="checkbox" value="true" /><label for="Q29">Makes Plans</label></td>
 <br>
-- <td><input name='letter[S1Q34]' type="checkbox" value="true" /><label for="S1Q34">approachable</label></td>
+- <td><input name='letter[Q30]' type="checkbox" value="true" /><label for="Q30">Follows Up</label></td>
 <br>
-- <td><input name='letter[S1Q35]' type="checkbox" value="true" /><label for="S1Q35">Open</label></td>
+- <td><input name='letter[Q31]' type="checkbox" value="true" /><label for="Q31">Person of their Word</label></td>
 <br>
-- <td><input name='letter[S1Q36]' type="checkbox" value="true" /><label for="S1Q36">volunteers</label></td>
+- <td><input name='letter[Q32]' type="checkbox" value="true" /><label for="Q32">Spiritual</label></td>
 <br>
-- <td><input name='letter[S1Q37]' type="checkbox" value="true" /><label for="S1Q37">takes responsibility for their own actions</label></td>
+- <td><input name='letter[Q33]' type="checkbox" value="true" /><label for="Q33">Clean</label></td>
 <br>
-- <td><input name='letter[S1Q38]' type="checkbox" value="true" /><label for="S1Q38">always learning</label></td>
+- <td><input name='letter[Q34]' type="checkbox" value="true" /><label for="Q34">approachable</label></td>
 <br>
-- <td><input name='letter[S1Q39]' type="checkbox" value="true" /><label for="S1Q39">easy going</label></td>
+- <td><input name='letter[Q35]' type="checkbox" value="true" /><label for="Q35">Open</label></td>
 <br>
-- <td><input name='letter[S1Q40]' type="checkbox" value="true" /><label for="S1Q40">takes responsibility</label></td>
+- <td><input name='letter[Q36]' type="checkbox" value="true" /><label for="Q36">volunteers</label></td>
 <br>
-- <td><input name='letter[S1Q41]' type="checkbox" value="true" /><label for="S1Q41">Optimistic</label></td>
+- <td><input name='letter[Q37]' type="checkbox" value="true" /><label for="Q37">takes responsibility for their own actions</label></td>
 <br>
-- <td><input name='letter[S1Q42]' type="checkbox" value="true" /><label for="S1Q42">Hopeful</label></td>
+- <td><input name='letter[Q38]' type="checkbox" value="true" /><label for="Q38">always learning</label></td>
 <br>
-- <td><input name='letter[S1Q43]' type="checkbox" value="true" /><label for="S1Q43">go getter</label></td>
+- <td><input name='letter[Q39]' type="checkbox" value="true" /><label for="Q39">easy going</label></td>
+<br>
+- <td><input name='letter[Q40]' type="checkbox" value="true" /><label for="Q40">takes responsibility</label></td>
+<br>
+- <td><input name='letter[Q41]' type="checkbox" value="true" /><label for="Q41">Optimistic</label></td>
+<br>
+- <td><input name='letter[Q42]' type="checkbox" value="true" /><label for="Q42">Hopeful</label></td>
+<br>
+- <td><input name='letter[Q43]' type="checkbox" value="true" /><label for="Q43">go getter</label></td>
 <br>
 
  
@@ -228,57 +283,57 @@
 - <td><input name='letter[S2Q01]' type="checkbox" value="true" /><label for="S2Q01">Follower</label></td>
 <br>
 
-<td><label for="S1Q9">6.       What was the kindest thing this person did for you or the best memory you have of this person?</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">6.       What was the kindest thing this person did for you or the best memory you have of this person?</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">7.       What attracted you to his person?</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">7.       What attracted you to his person?</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">8.       When did you realize this he was shady or the straw that broke the camel’s back.</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">8.       When did you realize this he was shady or the straw that broke the camel’s back.</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">9.       How could you have done things differently or what do you regret?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">9.       How could you have done things differently or what do you regret?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">10.   If you could see this person again, what would you like to tell them?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">10.   If you could see this person again, what would you like to tell them?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">11.   If you could see this person again, what would you want from them?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">11.   If you could see this person again, what would you want from them?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">12.   What is the most important thing you want the new person who is interested in dating this person to know?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">12.   What is the most important thing you want the new person who is interested in dating this person to know?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">13.   If you could get closure from this person, what would that closure look like for you?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">13.   If you could get closure from this person, what would that closure look like for you?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">14.   If you had a daughter or son, would you want them to date this person you dated and why?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">14.   If you had a daughter or son, would you want them to date this person you dated and why?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">15.   What did you learn from this experience?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">15.   What did you learn from this experience?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">16.   If you want to connect with a person who’s dated this guy, please put your email contact information here.
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">16.   If you want to connect with a person who’s dated this guy, please put your email contact information here.
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">17.   What song would you dedicate to this person?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">17.   What song would you dedicate to this person?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">18.   What’s the one sentence you would like to hear from your ex?
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">18.   What’s the one sentence you would like to hear from your ex?
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
-<td><label for="S1Q9">If you would like to share more please do so below. 
-</label><input name='letter[S1Q9]' type="textbox"  /></td>
+<td><label for="Q9">If you would like to share more please do so below. 
+</label><input name='letter[Q9]' type="textbox"  /></td>
 <br>
 
 </tr>

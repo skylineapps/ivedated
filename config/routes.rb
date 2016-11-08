@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   root 'users#index'
   post '/users' => 'users#create'
-  post '/users/edit' => 'users#edit'
+  post '/users/update' => 'users#update'
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
@@ -26,9 +26,13 @@ Rails.application.routes.draw do
   get '/joins/:id' => 'joins#create'
   delete '/joins/:id' => 'joins#destroy'
 
-  get '/profiles' => 'profiles#index'
+  get '/profiles/:id' => 'profiles#edit'
 
-   get '/profiles/edit' => 'profiles#edit'
+  post '/profiles/:id' => 'profiles#edit'
+
+  get '/profiles/edit/:id' => 'profiles#edit'
+
+  post '/profiles/edit/:id' => 'profiles#edit'
 
   get '/events/:id' => 'event_details#index'
 
@@ -39,6 +43,8 @@ Rails.application.routes.draw do
   post '/letters/new' => 'letters#create'
 
   patch '/users/:id' => 'users#update'
+
+  patch '/profiles/:id' => 'users#update'
 
   post '/profiles/index' => 'users#update'
 
