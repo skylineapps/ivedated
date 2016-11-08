@@ -20,11 +20,11 @@ class UsersController < ApplicationController
 	def update
 		user = User.find(session[:user_id])
 		flash[:errors] = user.errors.full_messages unless user.update(user_params)
-		redirect_to :back
+		redirect_to "/events"
 	end
 
   	private
   	def user_params
- 		params.require(:user).permit(:first_name, :last_name, :email, :city, :state, :image, :password, :password_confirmation)
+ 		params.require(:user).permit(:username, :first_name, :last_name, :email, :city, :state, :image, :password, :password_confirmation)
  	end
 end

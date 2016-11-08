@@ -12,4 +12,15 @@ class EventDetailsController < ApplicationController
   		@count+=1
   	end
   end
+
+  def show
+      @user= User.find(session[:user_id])
+      @event = Event.find(params[:id])
+    @events = Event.all
+    @eventsarray =[]
+    @events.each do |e|
+      @eventsarray << e.state
+  end
+
+end
 end
