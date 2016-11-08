@@ -84,7 +84,7 @@ body, html {
 
 <div id="container" class="col-md-6" align="left">
 	<div id="nav">
-		<h3>Welcome <%= @user.first_name %></h3>
+		<h3>Welcome <%= @user.username %></h3>
 
 		<p class="thumb">
 		<%= image_tag @user.image.url (:thumb)  %>
@@ -112,7 +112,7 @@ body, html {
 						<td><p class="thumb2"><%= image_tag e.user.image.url (:small)  %></p><a href="/events/<%= e.id %>"><%= e.name %></a></td>
 						<td><%= e.date.strftime("%B %e %Y") %></td>
 						<td><%= e.city %></td>
-						<td><%= e.user.first_name %></td>
+						<td><%= e.user.username %></td>
 						<td>
 
 							<% if @user.id == e.user.id %>
@@ -120,7 +120,7 @@ body, html {
 								<a href="/events/<%= e.id %>" data-method='delete'>Delete</a>
 							<% else %>
 								<% if @joinevents.include?(e.id) %>
-									Liked
+									Viewed
 									<a href="/joins/<%= e.id %>" data-method="delete">Cancel</a>
 								<% else %>
 									<a href="/joins/<%= e.id %>">View</a>
@@ -155,7 +155,7 @@ body, html {
 						<td><%= e.date.strftime("%B %e %Y") %></td>
 						<td><%= e.city %></td>
 						<td><%= e.state %></td>
-						<td><%= e.user.first_name %></td>
+						<td><%= e.user.username %></td>
 						<td>
 							<% if @user.id == e.user.id %>
 								<a href="/events/<%= e.id %>">Edit</a>
@@ -282,5 +282,5 @@ body, html {
 
 
 </body>
-			
+
 
