@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
 
+  get '/event_details/show/:id' => 'event_details#show'
   get '/events' => 'events#index'
   post '/events' => 'events#create'
   post '/events/edit/:id' => 'events#edit'
@@ -38,9 +39,9 @@ Rails.application.routes.draw do
 
   post '/comments' => 'comments#create'
 
-  get '/letters' => 'letters#index'
+  post '/letters/new/:id' => 'letters#create'
 
-  post '/letters/new' => 'letters#create'
+  get '/letters/:id' => 'letters#index'
 
   patch '/users/:id' => 'users#update'
 
